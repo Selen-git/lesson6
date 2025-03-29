@@ -1,17 +1,17 @@
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 
 driver = webdriver.Chrome()
 
 driver.get("http://uitestingplayground.com/textinput")
 
-text_input = driver.find_element_by_id("text")
+text_input = driver.find_element(By.CSS_SELECTOR, '#newButtonName')
 
 text_input.send_keys("SkyPro")
 
-button = driver.find_element_by_id("change-text")
+button = driver.find_element(By.CSS_SELECTOR, '#updatingButton')
 button.click()
 
-output_text = driver.find_element_by_id("result").text
+output_text = driver.find_element(By.CSS_SELECTOR, '#updatingButton').text
 
 print(output_text)
